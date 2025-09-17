@@ -1,0 +1,66 @@
+<header class="bg-white shadow-md py-4 px-6 flex items-center justify-between">
+  <h1 class="text-3xl font-bold text-red-600">Airbnb</h1>
+  <nav class="flex items-center gap-4">
+    <a 
+      href="/"
+      class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+    >
+      airbnb
+    </a>
+    <% if(isLoggedIn) { %>
+      <% if(user && user.userType==='guest') { %>
+        <a 
+          href="/homes"
+          class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+        > 
+          Home
+        </a>
+        <a 
+          href="/favourite-list"
+          class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+        >
+          Favourites
+        </a>
+        <a 
+          href="/booking"
+          class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+        >
+          Bookings
+        </a>
+      <% } else { %>
+        <a 
+          href="/host/host-home-list"
+          class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+        >
+          Host Homes
+        </a>
+        <a 
+          href="/host/add-home"
+          class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+        >
+          + Add Home
+        </a>
+      <% } %>
+    <% } %>
+    <% if (!isLoggedIn) { %>
+      <a 
+        href="/login"
+        class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+      >
+        Login
+      </a>
+      <a 
+        href="/signup"
+        class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+      >
+        SignUp
+      </a>
+    <% } else { %>
+      <form action="/logout" method="POST" class="inline">
+        <button type="submit" class="bg-red-500 text-white font-medium px-4 py-2 rounded-md shadow hover:bg-red-600 transition">
+          Logout
+        </button>
+      </form>
+    <% } %>
+  </nav>
+</header>

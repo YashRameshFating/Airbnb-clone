@@ -1,0 +1,9 @@
+<% if (errors.length > 0) { %>
+          <div class="bg-red-100 border border-red-300 text-red-700 px-4 py-2 rounded mb-2 animate-pulse">
+            <ul class="list-disc pl-5">
+              <% errors.forEach(function(error) { %>
+                <li><%= error %></li>
+              <% }) %>
+            </ul>
+          </div>
+<% } %>

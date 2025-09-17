@@ -1,0 +1,37 @@
+<%- include('../partials/head')%>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Header -->
+  <%- include('../partials/nav')%>
+
+  <!-- Main Content -->
+  <main class="max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
+   <h1 class="text-3xl md:text-4xl font-bold text-center text-indigo-600 mb-6">
+       Login 
+    </h1>
+      <form action="/login" method="POST" class="flex flex-col gap-4">
+        <%- include('../partials/errors')%>
+      <input 
+        type="email" 
+        name="email" 
+       value="<%=oldInput.email ? oldInput.email : '' %>"
+        placeholder="Enter your Email"
+        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Enter Your Password"
+        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+      <input 
+        type="submit" 
+        value="Sign in"
+        class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+      />
+    </form>
+  </main>
+
+</body>
+</html>

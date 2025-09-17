@@ -1,0 +1,92 @@
+<%- include('../partials/head')%>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex flex-col font-sans text-gray-800">
+  <!-- Airbnb Heading -->
+  <!-- <header class="w-full py-6 bg-white/80 shadow-md flex flex-col items-center border-b border-gray-200 z-10"> -->
+    <!-- <h1 class="text-4xl font-extrabold text-indigo-600 tracking-tight mb-1">Airbnb</h1> -->
+    <%- include('../partials/nav')%>
+  </header>
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center justify-center">
+    <div class="w-full max-w-xl mx-auto bg-white/90 p-8 rounded-2xl shadow-2xl border border-gray-200 backdrop-blur-md mt-6 mb-6">
+      <div class="flex flex-col items-center mb-6">
+        <div class="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center mb-2 shadow-md">
+          <svg class="w-10 h-10 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-indigo-600 mb-1 tracking-tight">
+          Register as a new user
+        </h2>
+        <p class="text-gray-500 text-sm">Create your account to get started</p>
+      </div>
+      <form action="/signup" method="POST" class="flex flex-col gap-4">
+   <%- include('../partials/errors')%>
+        <div class="flex gap-4">
+          <input 
+            type="text" 
+            name="firstName" 
+            value="<%= oldInput.firstName?oldInput.firstName : '' %>"
+            placeholder="First Name"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+          />
+          <input 
+            type="text" 
+            name="lastName" 
+             value="<%= oldInput.lastName?oldInput.lastName : '' %>"
+            placeholder="Last Name"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+          />
+        </div>
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your Email"
+          value="<%= oldInput.email?oldInput.email: '' %>"
+          class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        />
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Enter Your Password"
+          class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        />
+        <input 
+          type="password" 
+          name="confirmPassword" 
+          placeholder="Confirm Your Password"
+          class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
+        />
+        <div class="mb-2">
+          <p class="text-sm font-medium text-gray-700 mb-2">User Type:</p>
+          <div class="flex items-center gap-6">
+            <label class="inline-flex items-center text-sm text-gray-700 cursor-pointer">
+              <input type="radio" name="userType" value="guest" id="guest" class="text-indigo-600 focus:ring-indigo-500" checked="<%oldInput.userType === 'guest' %>">
+              <span class="ml-2">Guest</span>
+            </label>
+            <label class="inline-flex items-center text-sm text-gray-700 cursor-pointer">
+              <input type="radio" name="userType" value="host" id="host" class="text-indigo-600 focus:ring-indigo-500" checked="<%oldInput.userType === 'host' %>">
+              <span class="ml-2">Host</span>
+            </label>
+          </div>
+        </div>
+        <div class="flex items-start mb-2">
+          <input 
+            type="checkbox" 
+            name="terms" 
+            id="terms" 
+            class="mt-1 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+          >
+          <label for="terms" class="ml-2 text-sm text-gray-600">
+            I agree to the <a href="#" class="underline text-indigo-500 hover:text-indigo-700">terms and conditions</a>
+          </label>
+        </div>
+        <input 
+          type="submit" 
+          value="Register"
+          class="bg-red-500 text-white px-4 py-2 rounded-md font-semibold shadow hover:bg-red-600 transition duration-200 cursor-pointer mt-2"
+        />
+        <p class="text-center text-sm text-gray-500 mt-2">Already have an account? <a href="/login" class="text-red-500 font-semibold hover:underline">Login</a></p>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
